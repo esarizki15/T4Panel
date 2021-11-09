@@ -20,7 +20,7 @@ class CreateSubMenusTable extends Migration
             $table->boolean('status')->default(true);
             $table->unsignedBigInteger('menu_id');
             $table->foreign('menu_id')->references('id')->on('menus')->onUpdate('cascade');
-            $table->string('path', 250);
+            $table->string('path', 250)->nullable();
             $table->integer('order')->nullable();
             // $table->timestamps();
         });

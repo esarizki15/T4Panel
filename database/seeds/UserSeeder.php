@@ -124,6 +124,13 @@ class UserSeeder extends Seeder
 
         $subMenus = [
             [
+                'name'=>"__BLANK_MENU__",
+                'code'=>"__",
+                'status'=> false,
+                'menu_id' => 3,
+                'path' => null,
+            ],
+            [
                 'name'=>"User Access",
                 'code'=>"access-user",
                 'status'=> true,
@@ -180,11 +187,6 @@ class UserSeeder extends Seeder
             [
                 "user_id" => 1,
                 "menu_id" => 1,
-                "sub_menu_id" => 1,
-            ],
-            [
-                "user_id" => 1,
-                "menu_id" => 2,
                 "sub_menu_id" => 2,
             ],
             [
@@ -199,13 +201,18 @@ class UserSeeder extends Seeder
             ],
             [
                 "user_id" => 1,
-                "menu_id" => 3,
+                "menu_id" => 2,
                 "sub_menu_id" => 5,
             ],
             [
                 "user_id" => 1,
                 "menu_id" => 3,
                 "sub_menu_id" => 6,
+            ],
+            [
+                "user_id" => 1,
+                "menu_id" => 3,
+                "sub_menu_id" => 7,
             ],
         ];
         foreach($aclMenus as $aclMenu){
