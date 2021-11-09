@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     //
-    // protected $connection = 'pgsql_user_auth';
+    protected $connection = 'mysql';
     public $timestamps = false;
     
     protected $fillable = [ 'name',  'code',  'status' , 'nav_id' ,'icon' ,'order'];
