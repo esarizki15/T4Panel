@@ -1,0 +1,51 @@
+<script>
+
+window.onLoad(getMobileOperatingSystem());
+
+function getMobileOperatingSystem() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+var href = window.location.href;
+var url = new URL(href);
+var uri = url.searchParams.get("uri");
+
+var link = "https://iglow.id";
+var storelink = "";
+var html = "<html>";
+html += '<head>';
+html += '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
+html += '</head>';
+html += "<body style='width:100%;padding: 0;margin: 0;height: 100%;' >";
+
+    if (/android/i.test(userAgent)) {
+        link = "id.iglow.app://"+uri;
+        // link = "onesmile://?path=status-payment&id=245";
+        var storelink = "https://play.google.com/store/apps/details?id=iglow.beautytreatment.app";
+        html += "<br/>  <a href='"+storelink+"' style='display: block;background-color: khaki;color: black;text-decoration: none;padding: 10px;border: 1px solid black;border-radius: 5px;margin: 0 0 10% 35%;bottom: 0;width: 25%;text-align: center;position: fixed;'  >Open Store</a>";
+        html += "</body>";
+        html += "</html>";
+        document.write(html);
+        window.location.replace(link);
+
+        return ;
+    }
+
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        link = "id.iglow.app://"+uri;
+        storelink = "https://apps.apple.com/id/app/id1586111226";
+        html += "<br/> <a href='"+storelink+"' style='display: block;background-color: khaki;color: black;text-decoration: none;padding: 10px;border: 1px solid black;border-radius: 5px;margin: 0 0 10% 35%;bottom: 0;width: 25%;text-align: center;position: fixed;'  >Open Store</a>";
+        html += "</body>";
+        html += "</html>";
+        document.write(html);
+        window.location.replace(link);
+        return;
+    }
+  
+        // html += "<br/> <a href='"+storelink+"' style='display: block;background-color: khaki;color: black;text-decoration: none;padding: 10px;border: 1px solid black;border-radius: 5px;margin: 0 0 10% 35%;bottom: 0;width: 25%;text-align: center;position: fixed;'  >Open Store</a>";
+        // html += "</body>";
+        // html += "</html>";
+        // document.write(html);
+        window.location.replace(link);
+        return ;
+}
+</script>
