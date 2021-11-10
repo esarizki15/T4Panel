@@ -20,7 +20,7 @@ class CreateMenusTable extends Migration
             $table->boolean('status')->default(true);
             $table->unsignedBigInteger('nav_id');
             $table->foreign('nav_id')->references('id')->on('navigations')->onUpdate('cascade');
-            $table->string('icon', 100);
+            $table->string('icon', 100)->nullable();
             $table->integer('order');
             // $table->timestamps();
         });

@@ -270,6 +270,14 @@ class ScafoldController extends MYBaseController
     public function create()
     {
         $this->setTypeOfField("supplier_id","hidden");
+        // start mysql
+        if(\Request::route()->getName() == "menu.create") {
+            $arr = ["supplier_id", "parent_id", "slug", "url", "platform_id", "sort", "position_id", "is_absolute_url", "state", "active", "created_at", "updated_at", "permission_id"];
+            foreach($arr as $data) {
+                $this->setTypeOfField($data, "hidden");
+            }
+        }
+        // end mysql
         $caption = $this->getCaption();
         $connectionname = $this->getModelController()->getConnectionName();
         $columns = \DB::connection($connectionname)->select( \DB::connection($connectionname)->raw(' 
@@ -279,7 +287,8 @@ class ScafoldController extends MYBaseController
         END as disabled 
 
         from INFORMATION_SCHEMA.COLUMNS where table_name =\''.$this->getModelController()->getTable().'\' '));
-
+        
+        $columns = collect($columns)->unique('name'); //for mysql
         foreach($columns as &$column){
             $column->data = [];
             $column->type = "text";
