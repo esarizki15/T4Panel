@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}">
 @include('layouts.architect.head')
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
