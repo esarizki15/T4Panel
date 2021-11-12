@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.architect.main')
 @section('content')
 <section class="content-header">
     <ol class="breadcrumb">
@@ -10,12 +10,12 @@
 <div class="content">
     <div class="row">
         <div class="col-md-12" style="margin-top: 30px;">
-            <div class="box">
-                <div class="box-header with-border"><h3 class="box-title">API Users</h3></div>
+            <div class="card">
+                <div class="card-header with-border"><h3 class="card-title">API Users</h3></div>
                 @if (session('message'))
                 <div class="alert alert-info">{{ session('message') }}</div>
                 @endif   
-                <div class="box-body">
+                <div class="card-body">
                     <div class="row">
                         <form method="GET" action="{{ route(current(explode('.',Route::currentRouteName())) . '.index' ) }}">
                             @csrf
@@ -32,7 +32,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 ">
-                                        <a class="nav-link btn btn-app" href="{{ route('access-users.create') }}"><i class="fa fa-plus"></i> {{ __('Register') }}</a>
+                                        <a class="btn-transition btn btn-outline-dark" href="{{ route('access-users.create') }}"><i class="fa fa-plus"></i> {{ __('Register') }}</a>
                                     </div>
                                 </div>
                             </div>

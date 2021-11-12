@@ -92,6 +92,14 @@ class ScafoldController extends MYBaseController
     public function index(Request $request)
     {   
         $this->setTypeOfField("supplier_id","hidden");
+        // start mysql
+        if(\Request::route()->getName() == "menu.index") {
+            $arr = ["supplier_id", "parent_id", "slug", "url", "platform_id", "sort", "position_id", "is_absolute_url", "state", "active", "created_at", "updated_at", "permission_id"];
+            foreach($arr as $data) {
+                $this->setTypeOfField($data, "hidden");
+            }
+        }
+        // end mysql
         $param = $request->all();
         $user = \Auth::user();
         $grantType = $user->grantOption($user->role);

@@ -12,7 +12,6 @@
         <div class="app-main">
             @include('layouts.architect.sidebar')
             <div class="app-main__outer">
-                @yield('content')
                 @include('layouts.architect.app-main')
             </div>
             @include('layouts.architect.footer')
