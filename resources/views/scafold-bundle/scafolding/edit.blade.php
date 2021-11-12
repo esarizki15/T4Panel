@@ -89,7 +89,7 @@
                                                     @empty
                                                     @endforelse
                                                 @else
-                                                    <select class="select2  @if ($columns[$key]->type == 'multiple-select') {{ 'col-lg-6' }} @else {{ 'col-lg-4' }} @endif " @if ($columns[$key]->type == 'multiple-select')
+                                                    <select class="select2  form-control @if ($columns[$key]->type == 'multiple-select') {{ 'col-lg-6' }} @else {{ 'col-lg-4' }} @endif " @if ($columns[$key]->type == 'multiple-select')
                                                         name="{{ $key }}[]"
                                                     @else
                                                         name="{{ $key }}"
@@ -179,7 +179,7 @@
                     @endforelse
 
                     <div class="form-group row mb-0">
-                        <div class="col-md-6 offset-md-4">
+                        <div class="col-md-6 offset-md-2">
                             <button type="submit" class="btn btn-primary">
                                 {{ __('Update') }}
                             </button>

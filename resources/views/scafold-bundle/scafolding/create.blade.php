@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.architect.main')
 
 @section('content')
     <section class="content-header">
@@ -40,7 +40,7 @@
                                         @endif
 
                                         <div class="col-md-10">
-                                            <div class="col-md-11">
+                                            <div>
                                                 @if ($column->data)
                                                     @if ($column->type == 'multiple-field')
                                                         @forelse($column->data as $kcoll => $collection)
@@ -72,7 +72,7 @@
                                                         @empty
                                                         @endforelse
                                                     @else
-                                                        <select class="select2 @if ($column->type == 'multiple-select') {{ 'col-lg-6' }} @else {{ 'col-lg-4' }} @endif "
+                                                        <select class="select2 form-control @if ($column->type == 'multiple-select') {{ 'col-lg-6' }} @else {{ 'col-lg-4' }} @endif "
                                                             @if ($column->type == 'multiple-select') {{ 'multiple="multiple" ' }} @endif @if ($column->not_required == 'NOT') {{ 'required' }} @endif @if ($column->type == 'multiple-select')
                                                             name="{{ $column->name }}[]"
                                                         @else
@@ -130,7 +130,7 @@
                                                         name="{{ $column->name }}" value="{{ old($column->name) }}"
                                                         @if ($column->not_required == 'NOT') {{ 'required' }} @endif @if ($column->disabled == 'disabled') {{ 'disabled' }} @endif />
                                                 @endif
-                                @endif
+                                            @endif
                     </div>
                     <div class="col-md-1">
                         <span>@if ($column->not_required == 'NOT') {{ '*' }} @endif </span>
@@ -143,7 +143,7 @@
                 <td>NO ITEM</td>
                 @endforelse
                 <div class="form-group row mb-0">
-                    <div class="col-md-6 offset-md-4">
+                    <div class="col-md-6 offset-md-2">
                         <button type="submit" class="btn btn-primary">
                             {{ __('Create') }}
                         </button>
