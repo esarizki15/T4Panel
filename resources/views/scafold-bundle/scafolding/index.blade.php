@@ -1,4 +1,4 @@
-@extends('layouts.app-v1')
+@extends('layouts.architect.main')
 @section('content')
 <section class="content-header">
     <ol class="breadcrumb">

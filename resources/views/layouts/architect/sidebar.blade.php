@@ -31,63 +31,30 @@
     </div>
     <div class="scrollbar-sidebar">
         <div class="app-sidebar__inner">
-            <ul class="vertical-nav-menu">
-                <li class="app-sidebar__heading">Menu</li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-rocket"></i>
-                        Dashboards
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="analytics.html">
-                                <i class="metismenu-icon">
-                                </i>Analytics
-                            </a>
-                        </li>
-                        <li>
-                            <a href="commerce.html">
-                                <i class="metismenu-icon">
-                                </i>Commerce
-                            </a>
-                        </li>
-                        <li>
-                            <a href="sales.html">
-                                <i class="metismenu-icon">
-                                </i>Sales
-                            </a>
-                        </li>
-                        <li>
+            @foreach ($navs as $nav)
+                <ul class="vertical-nav-menu">
+                    <li class="app-sidebar__heading">{{ $nav->name }}</li>
+                    @foreach ($nav->menu->where('status', true) as $menu)
+                        <li class="@if ($caption->menu->code == $menu->code) {{ 'active' }} @endif">
                             <a href="#">
-                                <i class="metismenu-icon"></i>
-                                Minimal
+                                <i class="@if ($menu->icon) {{ 'fa ' . $menu->icon }} @endif metismenu-icon pe-7s-rocket"></i>
+                                {{ $menu->name }}
                                 <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                             </a>
                             <ul>
-                                <li>
-                                    <a href="minimal-1.html">
-                                        <i class="metismenu-icon">
-                                        </i>Variation 1
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="minimal-2.html">
-                                        <i class="metismenu-icon">
-                                        </i>Variation 2
-                                    </a>
-                                </li>
+                                @foreach ($menu->submenu->where('status', true) as $submenu)
+                                    <li class="@if ($caption->code == $submenu->code) {{ 'active' }} @endif">
+                                        <a href="@if ($submenu->path) {{ route($submenu->path) }} @else {{ '/' }} @endif">
+                                            <i class="metismenu-icon">
+                                            </i>{{ $submenu->name }}
+                                        </a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </li>
-                        <li>
-                            <a href="crm.html">
-                                <i class="metismenu-icon"></i>
-                                CRM
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+                    @endforeach
+                </ul>
+            @endforeach
         </div>
     </div>
 </div>

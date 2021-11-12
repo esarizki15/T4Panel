@@ -74,7 +74,7 @@ class MYBaseController extends Controller
 
         $b['caption'] = $this->getCaption();
         $b['navs'] = $this->getNavigations();
-
+        
         return view($a,$b);
 
     }
